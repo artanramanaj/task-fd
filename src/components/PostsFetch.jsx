@@ -3,7 +3,13 @@ import { callJsonRpc } from "../api/twocents";
 import maleImg from "../assets/male.png";
 import femaleImg from "../assets/female.png";
 import moment from "moment";
-import { FaArrowUp, FaComment, FaEye, FaFlag } from "react-icons/fa";
+import {
+  FaArrowUp,
+  FaArrowDown,
+  FaComment,
+  FaEye,
+  FaFlag,
+} from "react-icons/fa";
 import { Spinner } from ".";
 import { Link } from "react-router-dom";
 
@@ -99,7 +105,16 @@ const PostContent = ({ post }) => (
 
 const PostStats = ({ post }) => (
   <div className="w-full flex flex-col items-center gap-2  text-sm text-gray-500 md:justify-between md:flex-row md:gap-0">
-    <StatItem icon={<FaArrowUp />} value={post.upvote_count} />
+    <StatItem
+      icon={
+        post.upvote_count.toString()[0] === "-" ? (
+          <FaArrowDown />
+        ) : (
+          <FaArrowUp />
+        )
+      }
+      value={post.upvote_count}
+    />
     <StatItem icon={<FaComment />} value={post.comment_count} />
     <StatItem icon={<FaEye />} value={post.view_count} />
     <StatItem icon={<FaFlag />} value={post.report_count} />
@@ -140,7 +155,7 @@ export default function PostsFetch({ filter, filterLabel }) {
   }, [filter]);
 
   if (loading) return <Spinner />;
-  if (error) return <p style={{ color: "red" }}>Error: {error}</p>;
+  if (error) return <p className="text-red-600">Error: {error}</p>;
 
   return (
     <>

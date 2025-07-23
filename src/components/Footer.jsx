@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <div className="bg-primary-blue py-8">
       <div className="container flex-center-row ">
-        <p className="text-white">copyright @fluxadev {year}</p>
+        <p className="text-white"> {year}</p>
       </div>
     </div>
   );

@@ -73,3 +73,16 @@
     }
   }
 }
+
+@keyframes fillWidth {
+  from {
+    width: 0%;
+  }
+  to {
+    width: var(--target-width);
+  }
+}
+
+.animated-fill {
+  animation: fillWidth 1s ease-out forwards;
+}
