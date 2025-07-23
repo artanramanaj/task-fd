@@ -4,7 +4,7 @@ import maleImg from "../assets/male.png";
 import femaleImg from "../assets/female.png";
 import moment from "moment";
 import { FaArrowUp, FaComment, FaEye, FaFlag } from "react-icons/fa";
-import { Spinner } from "../components";
+import { Spinner } from ".";
 import { Link } from "react-router-dom";
 
 const PostCard = ({ post }) => {
@@ -127,6 +127,7 @@ export default function PostsFetch({ filter, filterLabel }) {
         const result = await callJsonRpc("/v1/posts/arena", {
           filter,
         });
+        console.log("check the results", result);
         setPosts(result.posts || []);
       } catch (e) {
         setError(e.message);

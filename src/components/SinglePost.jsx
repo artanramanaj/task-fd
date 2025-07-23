@@ -4,7 +4,7 @@ import maleImg from "../assets/male.png";
 import femaleImg from "../assets/female.png";
 import moment from "moment";
 import { FaArrowUp, FaComment, FaEye, FaFlag } from "react-icons/fa";
-import { Spinner } from "../components";
+import { Spinner } from ".";
 import { callJsonRpc } from "../api/twocents";
 
 const SinglePost = ({ postId }) => {
